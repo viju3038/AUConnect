@@ -1,0 +1,2 @@
+# AUConnect
+The main aim of the project is to bridge the gap between college and professional network. The platform will be a one stop destination for the students to share resources, discuss potential opportunities and seek mentorship from experienced seniors and professionals. The idea is to create and build a professional community of students who can empower and help each other for the upliftment of the students. The proposed project will simplify the process of networking and community building for students at both individual and professional level.
