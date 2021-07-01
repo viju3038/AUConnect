@@ -1,0 +1,221 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700|Source+Sans+Pro:300,400,600,700&display=swap");
+.resource-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  visibility: hidden;
+  opacity: 1;
+  -webkit-transition: visibility 0s, opacity 0.5s;
+  transition: visibility 0s, opacity 0.5s;
+  z-index: 5;
+}
+
+.resource-overlay * {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.resource-overlay .modal {
+  position: relative;
+  background-color: white;
+  width: 50%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 8px;
+  padding: 20px 70px;
+  z-index: 5;
+}
+
+.resource-overlay .modal .heading {
+  color: #131720;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.resource-overlay .modal form .submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.resource-overlay .modal form .submit #add_post {
+  background-color: #116dff;
+  color: white;
+  width: 10%;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.resource-overlay .modal form .submit #add_post:hover {
+  -webkit-box-shadow: 0 0 5px #1b86f9;
+          box-shadow: 0 0 5px #1b86f9;
+}
+
+.resource-overlay .modal form .other {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.resource-overlay .modal form .other #opp-add-heading {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  color: #131720;
+  padding-bottom: 1%;
+  padding-top: 2%;
+}
+
+.resource-overlay .modal form .other textarea {
+  border-radius: 10px;
+  font: "Source Sans Pro", sans-serif !important;
+  border: none;
+  resize: none;
+  min-height: 15rem;
+  padding: 20px 20px;
+  background-color: #dfe5eb;
+  color: #595c6c;
+}
+
+.resource-overlay .modal form .other #file {
+  color: #595c6c;
+}
+
+.resource-overlay .modal form .other ::-webkit-file-upload-button {
+  background: #116dff;
+  text-decoration: none;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.resource-overlay .modal form .other ::-webkit-file-upload-button:hover {
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 5px #1b86f9;
+          box-shadow: 0 0 5px #1b86f9;
+}
+
+.resource-overlay .modal form .other .tags-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #dfe5eb;
+  height: 40px;
+  color: #595c6c;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 10px;
+  border: none;
+  padding: 0px 0.2rem;
+  font: "Source Sans Pro", sans-serif;
+}
+
+.resource-overlay .modal form .other .tags-input .tag {
+  font-size: 85%;
+  padding: 0.5em 0.75em;
+  margin: 0.6em 0.2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: white;
+  color: #595c6c;
+  border-radius: 10px;
+  border: none;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  cursor: pointer;
+}
+
+.resource-overlay .modal form .other .tags-input .tag .close::after {
+  content: "×";
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+  margin-left: 0.75em;
+}
+
+.resource-overlay .modal form .other .tags-input .tag .close:hover::after {
+  color: #116dff;
+}
+
+.resource-overlay .modal form .other .tags-input .main-input {
+  background-color: #dfe5eb;
+  font: "Source Sans Pro", sans-serif;
+  border-radius: 10px;
+  border: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: #595c6c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border: 0;
+  outline: 0;
+  padding: 0.5em 0.7em;
+}
+
+.resource-overlay .modal .close-res {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  font-size: 35px;
+  color: #595c6c;
+}
+
+.bg-active {
+  visibility: visible;
+  opacity: 1;
+}
+/*# sourceMappingURL=resource_overlay.css.map */

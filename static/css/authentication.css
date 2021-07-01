@@ -1,0 +1,307 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700|Source+Sans+Pro:300,400,600,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #fcfcfc;
+  color: #131720;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .logo {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  width: 35%;
+}
+
+body .form-container {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+
+@media screen and (min-width: 40em) {
+  body {
+    font-size: 1.25em;
+  }
+}
+
+.forms {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-transition: all 0.3s cubic-bezier(0.18, 0.89, 0.62, 1);
+  transition: all 0.3s cubic-bezier(0.18, 0.89, 0.62, 1);
+}
+
+.forms > * {
+  width: 50%;
+}
+
+.form {
+  padding: 50px 0;
+  max-width: 40em;
+  margin: 0 auto;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.form span {
+  font-size: 30px;
+  letter-spacing: 0.025em;
+  font-size: 1.75em;
+  font-weight: 600;
+}
+
+.form span.center {
+  text-align: center;
+}
+
+.form .field {
+  width: 100%;
+  margin: 0 0 1.5em 0;
+  padding: 2px;
+}
+
+.form .field.half {
+  width: 50%;
+}
+
+.form .field .label {
+  font-weight: 600;
+  padding-bottom: 10px;
+  letter-spacing: 0.025em;
+  font-size: 1.125em;
+  line-height: 1.25;
+  display: block;
+}
+
+.form .field .label.required:after {
+  content: " *";
+  color: #e8474c;
+  font-weight: normal;
+  font-size: 0.75em;
+  vertical-align: top;
+}
+
+.form .field .text-input,
+.form .field .textarea {
+  padding: 15px;
+  border: none;
+  background-color: #eceff3;
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  width: 100%;
+  max-width: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #595c6c;
+}
+
+.form .field .text-input:focus, .form .field .text-input:hover, .form .field .text-input:active,
+.form .field .textarea:focus,
+.form .field .textarea:hover,
+.form .field .textarea:active {
+  background-color: #dfe5eb;
+}
+
+.form .field .options {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.form .field .options .option {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin: 2px;
+}
+
+.form .field .options .option-input {
+  clip: rect(0 0 0 0);
+  position: absolute;
+}
+
+.form .field .options .option-input + label {
+  padding: 15px 20px;
+  background-color: #eceff3;
+  display: block;
+  color: #595c6c;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.form .field .options .option-input:focus + label,
+.form .field .options .option-input:hover + label,
+.form .field .options .option-input:active + label {
+  color: #131720;
+}
+
+.form .field .options .option-input:checked + label {
+  color: #131720;
+  background-color: #dfe5eb;
+}
+
+.form .field .custom-select {
+  position: relative;
+  margin: 0;
+}
+
+.form .field .custom-select select {
+  font-size: 20px;
+  font-weight: 100;
+  color: #595c6c;
+  padding: 15px 20px;
+  width: 100%;
+  background-color: #eceff3;
+  border: 0;
+  text-overflow: "" !important;
+}
+
+.form .field .custom-select select:focus, .form .field .custom-select select:hover, .form .field .custom-select select:active {
+  background-color: #dfe5eb;
+}
+
+.form .field .custom-select select option {
+  padding: 15px 20px;
+}
+
+.form .field .custom-select select:-ms-expand {
+  display: none;
+}
+
+.form .field .custom-select .custom-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+  width: 50px;
+  height: 100%;
+  background-color: #dfe5eb;
+}
+
+.form .field .custom-select .custom-arrow:after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  pointer-events: none;
+  width: 0.25em;
+  height: 0.25em;
+  content: "";
+  border-style: solid;
+  border-color: #595c6c;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: translate(50%, -50%) rotate(45deg);
+          transform: translate(50%, -50%) rotate(45deg);
+}
+
+.form .field .button {
+  padding: 0.75em 2em;
+  font: inherit;
+  cursor: pointer;
+  background: #116dff;
+  color: white;
+  font-weight: bold;
+  margin-left: auto;
+  font-weight: bold;
+  border: none;
+}
+
+.form .field .button:hover, .form .field .button:focus, .form .field .button:active {
+  color: white;
+  border-color: white;
+}
+
+.form .field .button:active {
+  position: relative;
+  top: 1px;
+  left: 1px;
+}
+
+.form .field.last input[value="Signup"] {
+  position: relative;
+  left: 100%;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.form .field.last #login,
+.form .field.last #signup {
+  color: #116dff;
+  background-color: #fcfcfc;
+  border: 1px solid #116dff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+/*# sourceMappingURL=authentication.css.map */

@@ -1,0 +1,270 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700|Source+Sans+Pro:300,400,600,700&display=swap");
+.opp-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  visibility: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: visibility 0s, opacity 0.5s;
+  transition: visibility 0s, opacity 0.5s;
+  z-index: 5;
+}
+
+.opp-overlay * {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.opp-overlay .modal {
+  position: relative;
+  background-color: white;
+  width: 50%;
+  padding: 20px 40px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 8px;
+  z-index: 5;
+}
+
+.opp-overlay .modal .heading {
+  padding-bottom: 30px;
+  padding-top: 10px;
+  color: #595c6c;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.opp-overlay .modal form .submit {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.opp-overlay .modal form .submit .add-opp {
+  background-color: #116dff;
+  color: white;
+  width: 10%;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.opp-overlay .modal form .submit .add-opp:hover {
+  -webkit-box-shadow: 0 0 5px #1b86f9;
+          box-shadow: 0 0 5px #1b86f9;
+}
+
+.opp-overlay .modal form .other {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.opp-overlay .modal form .other .part_1,
+.opp-overlay .modal form .other .part_2 {
+  overflow: auto;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.opp-overlay .modal form .other .part_1 #opp-add-heading,
+.opp-overlay .modal form .other .part_2 #opp-add-heading {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  color: #595c6c;
+  padding-bottom: 5px;
+}
+
+.opp-overlay .modal form .other .part_1 #role,
+.opp-overlay .modal form .other .part_1 #location,
+.opp-overlay .modal form .other .part_1 #company,
+.opp-overlay .modal form .other .part_1 #type,
+.opp-overlay .modal form .other .part_1 #applink,
+.opp-overlay .modal form .other .part_1 #test,
+.opp-overlay .modal form .other .part_2 #role,
+.opp-overlay .modal form .other .part_2 #location,
+.opp-overlay .modal form .other .part_2 #company,
+.opp-overlay .modal form .other .part_2 #type,
+.opp-overlay .modal form .other .part_2 #applink,
+.opp-overlay .modal form .other .part_2 #test {
+  background-color: #dfe5eb;
+  height: 40px;
+  color: #595c6c;
+  padding-left: 3%;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+.opp-overlay .modal form .other .part_1 .tags-input,
+.opp-overlay .modal form .other .part_2 .tags-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #dfe5eb;
+  height: 40px;
+  color: #595c6c;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 10px;
+  border: none;
+  padding: 0px 0.2rem;
+}
+
+.opp-overlay .modal form .other .part_1 .tags-input .tag,
+.opp-overlay .modal form .other .part_2 .tags-input .tag {
+  font-size: 85%;
+  padding: 0.5em 0.75em;
+  margin: 0.6em 0.2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: white;
+  color: #595c6c;
+  border-radius: 10px;
+  border: none;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  cursor: pointer;
+}
+
+.opp-overlay .modal form .other .part_1 .tags-input .tag .close::after,
+.opp-overlay .modal form .other .part_2 .tags-input .tag .close::after {
+  content: "×";
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+  margin-left: 0.75em;
+}
+
+.opp-overlay .modal form .other .part_1 .tags-input .tag .close:hover::after,
+.opp-overlay .modal form .other .part_2 .tags-input .tag .close:hover::after {
+  color: #116dff;
+}
+
+.opp-overlay .modal form .other .part_1 .tags-input .main-input,
+.opp-overlay .modal form .other .part_2 .tags-input .main-input {
+  width: 100%;
+  background-color: #dfe5eb;
+  border-radius: 10px;
+  border: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: #595c6c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border: 0;
+  outline: 0;
+  padding: 0.5em 3%;
+}
+
+.opp-overlay .modal form .other .part_1 {
+  padding-right: 10px;
+}
+
+.opp-overlay .modal form .other .part_2 {
+  padding-left: 10px;
+}
+
+.opp-overlay .modal form .part_3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.opp-overlay .modal form .part_3 #opp-add-heading {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  color: #595c6c;
+  padding-bottom: 1%;
+}
+
+.opp-overlay .modal form .part_3 #description {
+  border: none;
+  resize: none;
+  border-radius: 8px;
+  min-height: 12rem;
+  padding: 20px 20px;
+  background-color: #dfe5eb;
+  color: #595c6c;
+}
+
+.opp-overlay .modal .close-opp {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  font-size: 35px;
+  color: #595c6c;
+}
+
+.bg-active {
+  visibility: visible;
+  opacity: 1;
+}
+/*# sourceMappingURL=opp_overlay.css.map */
