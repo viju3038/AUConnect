@@ -1,0 +1,43 @@
+<div class="workexp-overlay">
+    <div class="modal">
+        <div class="heading">
+            <span>Add Work Experience</span>
+        </div>
+        <form id="work_exp" enctype="multipart/form-data">
+            <div class="other">
+
+                <div class="part_1">
+                    <label id="opp-add-heading">Role</label>
+                    <input type="text" name="role" id="role" autocomplete="none" />
+
+                    <label id="opp-add-heading">Company Name</label>
+                    <input type="text" name="company" id="company" autocomplete="none" />
+
+                    <label id="opp-add-heading">Joining Date</label>
+                    <input type="date" name="joindate" id="joindate" autocomplete="none" required="required"/>
+                                        
+                </div>
+                <div class="part_2">
+                    <label id="opp-add-heading">Location</label>
+                    <input type="text" name="location" id="location" autocomplete="none" />
+
+                    <label id="opp-add-heading">Type of the role</label>
+                    <input type="text" name="type" id="type" autocomplete="none" />
+
+                    <label id="opp-add-heading">Ending Date</label>
+                    <input type="date" name="enddate" id="enddate" autocomplete="none" required="required"/>
+
+                </div>
+                
+            </div>
+            <div class="part_3">
+                <label id="opp-add-heading">Description of the work</label>
+                <textarea id="description" name="description" autocomplete="none"></textarea>
+            </div>
+            <div class="submit">
+                <button type="submit" class="add-opp">Add</button>
+            </div>
+        </form>
+        <span class="close-workexp">+</span>
+    </div>
+</div>

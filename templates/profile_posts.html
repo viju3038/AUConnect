@@ -1,0 +1,70 @@
+{% extends 'profile.html' %}
+
+<!--  -->
+{% block timeline %}
+<a class="profile-menu-link active">Timeline</a>
+{% endblock %}
+
+<!--  -->
+{% block title %} Profile - Timeline {% endblock %}
+
+<!--  -->
+{% block profileContainer %} {% if posts|length > 0 %}
+<div class="post-container">
+	<div class="post-box-container">
+		{% for post in posts %}
+		<div class="post-card">
+			<div class="post box">
+				<div class="post-main">
+					<a href="/profile/{{user.username}}"
+						><img src="/uploads/profile/{{ post.author.username }}_profile.webp" class="post-author-img"
+					/></a>
+					<div class="post-detail">
+						<a class="post-title" href="/profile/{{user.username}}">
+							<strong>{{post.author.firstname}} {{post.author.lastname}}</strong>
+						</a>
+						<div class="post-subtitle">
+							<div class="post-date">{{ post.added_time|timeperiod }}</div>
+						</div>
+					</div>
+				</div>
+				<div class="post-content">
+					{{post.description}}
+					<div class="post-slider">
+						<div class="post-items" style="--data-counts: {{post.location|length}}">
+							{% for loc in post.location %}
+							<div class="post-item">
+								<img src="/uploads/post/{{loc}}" alt="NA" />
+							</div>
+							{% endfor %}
+						</div>
+						<!-- Next and previous buttons -->
+						{% if post.location|length > 1 %}
+						<a class="prev" id="carousel-button">&#10094;</a>
+						<a class="next" id="carousel-button">&#10095;</a>
+						{% endif %}
+					</div>
+				</div>
+				{% if not other %}
+				<div class="delete-confirm">
+					<button class="delete">
+						<i class="fa fa-trash-o fa-lg"></i>
+					</button>
+					<button class="yes" onclick="delete_item('post', '{{ post._id }}');">
+						<i class="fa fa-check"></i>
+					</button>
+					<button class="no">
+						<i class="fa fa-close"></i>
+					</button>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% else %}
+<div class="no-data">
+	<span>No Post shared yet!</span>
+</div>
+{% endif %} {% endblock %}

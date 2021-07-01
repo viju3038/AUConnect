@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+<!--  -->
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+
+<!--  -->
+{% block title %} Reviews {% endblock %}
+
+<!--  -->
+{% block main %}
+<div class="review-container">
+	<div class="review-menu">
+		
+		<!--  -->
+		{% block review %}
+		<a href="/reviews/" class="review-menu-link">Reviews</a>
+		{% endblock %}
+
+        <!--  -->
+		{% block request %}
+		<a href="/requests/" class="review-menu-link">Requests</a>
+		{% endblock %}
+
+	</div>
+
+    <!--  -->
+	{% block reviewContainer %}
+    {% endblock %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+<!--  -->
+{% block meta %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+
+<!--  -->
+{% block title %} Posts {% endblock %}
+
+<!--  -->
+{% block main %}
+<div class="post-container">
+	<div class="post-box-container">
+		{% for post in posts %}
+		<div class="post-card">
+			<div class="post box">
+				<div class="post-main">
+<a href="/profile/{{post.author.username}}"><img src="/uploads/profile/{{ post.author.username }}_profile.webp" class="post-author-img" /></a>
+					<div class="post-detail">
+						<a class="post-title" href="/profile/{{post.author.username}}">
+							<strong>{{ post.author.firstname }} {{ post.author.lastname }}</strong>
+						</a>
+						<div class="post-subtitle">
+							<div class="post-date">{{ post.added_time|timeperiod }}</div>
+						</div>
+					</div>
+				</div>
+				<div class="post-content">
+					{{ post.description }}
+					<div class="post-slider">
+						<div class="post-items" style="--data-counts: {{ post.location|length }}">
+							{% for loc in post.location %}
+							<div class="post-item">
+								<img src="/uploads/post/{{loc}}" alt="" />
+							</div>
+							{% endfor %}
+						</div>
+						<!-- Next and previous buttons -->
+						{% if post.location|length > 1 %}
+						<a class="prev" id="carousel-button">&#10094;</a>
+						<a class="next" id="carousel-button">&#10095;</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

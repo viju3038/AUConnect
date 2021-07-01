@@ -1,0 +1,72 @@
+<div class="edit-overlay">
+	<div class="modal">
+		<div class="heading">
+			<span>Edit Profile</span>
+		</div>
+		<form id="edit-prof" action="/edit-profile/" method="POST" enctype="multipart/form-data">
+			<div class="other">
+				<div class="prof-photo">
+					<img src="/uploads/profile/{{ user.username }}_profile.webp" class="profile-img" id="profile-img" />
+					<div class="update">
+						<label id="choose-photo">Choose photo</label>
+						<input type="file" class="profile-photo" name="file" id="file" accept="image/*" />
+					</div>
+				</div>
+
+				<div class="cover-photo">
+					<img src="/uploads/cover/{{ user.username }}_cover.webp" class="cover-img" id="cover-img" />
+					<div class="cover-container">
+						<input type="file" class="cov-photo" name="coverfile" id="coverfile" accept="image/*" style="display: none" />
+						<label id="choose-cover-photo">Choose photo</label>
+					</div>
+				</div>
+				<div class="name">
+					<div class="fname">
+						<label id="opp-add-heading" for="firstname">First Name</label>
+						<input type="text" name="firstname" id="firstname" autocomplete="none" value="{{ user['firstname'] }}" />
+					</div>
+					<div class="lname">
+						<label id="opp-add-heading" for="lastname">Last Name</label>
+						<input type="text" name="lastname" id="lastname" autocomplete="none" value="{{ user['lastname'] }}" />
+					</div>
+				</div>
+
+				<div class="email">
+					<label id="opp-add-heading" for="email">E-mail</label>
+					<input type="text" name="email" id="email" value="{{ user['email'] }}" readonly />
+				</div>
+
+				<label id="opp-add-heading" for="description">Bio</label>
+				<textarea name="description" id="description" autocomplete="none">{{ user['about'] }}</textarea>
+
+				<label id="opp-add-heading" for="skills">Skills</label>
+				<div class="tags-input edit-profile" data-name="skills" data-value="{{ user.skills }}"></div>
+
+				<label id="opp-add-heading" for="resume">Update Resume</label>
+				<input type="file" class="custom-file-input" name="resume" id="resume" />
+
+				<div class="social">
+					<label id="opp-add-heading" for="linkedin">LinkedIn</label>
+					<input type="url" name="linkedin" id="linkedin" autocomplete="none" value="{{ user['linkedin'] }}" />
+
+					<label id="opp-add-heading" for="twitter">Twitter</label>
+					<input type="url" name="twitter" id="twitter" autocomplete="none" value="{{ user['twitter'] }}" />
+
+					<label id="opp-add-heading" for="instagram">Instagram</label>
+					<input type="url" name="instagram" id="instagram" autocomplete="none" value="{{ user['instagram'] }}" />
+
+					<label id="opp-add-heading" for="facebook">Facebook</label>
+					<input type="url" name="facebook" id="facebook" autocomplete="none" value="{{ user['facebook'] }}" />
+
+					<label id="opp-add-heading" for="github">GitHub</label>
+					<input type="url" name="github" id="github" autocomplete="none" value="{{ user['github'] }}" />
+				</div>
+			</div>
+			<div class="submit">
+				<!-- <button id="cancel">Cancel</button> -->
+				<button type="submit" id="save">Save</button>
+			</div>
+		</form>
+		<span class="close-prof">+</span>
+	</div>
+</div>

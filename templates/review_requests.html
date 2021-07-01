@@ -1,0 +1,58 @@
+{% extends 'review_base.html' %}
+
+<!--  -->
+{% block request %}
+<a class="review-menu-link active">Requests</a>
+{% endblock %}
+
+<!--  -->
+{% block reviewContainer %}
+<div class="review-overlay">
+	<div class="modal">
+		<div class="heading">
+			<span>Send Review</span>
+		</div>
+		<form id="review_form" enctype="multipart/form-data">
+			<div class="other">
+				<label id="opp-add-heading">Review</label>
+				<textarea name="review" id="review" autocomplete="none"></textarea>
+			</div>
+			<div class="submit">
+				<button type="submit" id="send_review">Send</button>
+			</div>
+		</form>
+		<span class="cancel-review">+</span>
+	</div>
+</div>
+
+{% if requests|length > 0 %}
+<div class="request-box-container">
+	 {% for req in requests %}
+	<div class="request-card">
+		<div class="request box" onclick="send_review('{{ req._id }}','{{ req.type }}')">
+			<div class="request-main">
+				<a href="/profile/{{req.to.username}}"><img class="request-image" src="/uploads/profile/{{ req.to.username }}_profile.webp" alt="" /></a>
+				<div class="request-details">
+					<a class="request-name" href="/profile/{{req.to.username}}">
+						<strong>{{ req.to.firstname }} {{ req.to.lastname }}</strong>
+					</a>
+					<div class="request-date">{{ req.request_time|timeperiod }}</div>
+					{% if req.type == 'linkedin' %}
+					<a href="{{ req.doc_link }}" target="_blank" class="request-link linkedin" onclick="send_review('{{ req.id }}')">
+						<i class="fa fa-linkedin"></i><span>LinkedIn</span>
+					</a>
+					{% else %}
+					<a href="/uploads/resume/{{ req.doc_link }}" target="_blank" class="request-link resume"> <i class="fa fa-download"></i><span>Resume</span> </a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %} 
+</div>
+{% else %}
+	<div class="no-requests box">
+		<p>No requests recieved yet!</p>
+	</div>
+{% endif %}
+{% endblock %}

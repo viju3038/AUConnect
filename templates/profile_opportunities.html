@@ -1,0 +1,73 @@
+{% extends 'profile.html' %}
+
+<!--  -->
+{% block opportunity %}
+<a class="profile-menu-link active">Opportunities</a>
+{% endblock %}
+
+<!--  -->
+{% block title %} Profile - Opportunities {% endblock %}
+
+<!--  -->
+{% block profileContainer %} {% if opportunities|length > 0 %}
+<div class="opportunity-container">
+	<div class="opportunity-box-container">
+		{% for opp in opportunities %}
+		<div class="opportunity-card">
+			<div class="opportunity box">
+				<div class="opportunity-main">
+					<a href="/profile/{{user.username}}"
+						><img src="/uploads/profile/{{ opp.author.username }}_profile.webp" class="opportunity-img"
+					/></a>
+					<div class="opportunity-detail">
+						<a class="opportunity-title" href="/profile/{{user.username}}">
+							<strong>{{ opp.author.firstname }} {{ opp.author.lastname }}</strong>
+						</a>
+						<div class="opportunity-subtitle">
+							<div class="opportunity-date">{{ opp.added_time|timeperiod }}</div>
+						</div>
+					</div>
+				</div>
+				<div class="opportunity-content">
+					<div class="opportunity-title">{{ opp.role }}</div>
+					<div class="opportunity-details">
+						<i class="fa fa-map-marker"></i>
+						<span class="opportunity-location"> {{ opp.location }} </span>
+						<i class="fa fa-building-o"></i>
+						<span class="opportunity-company">{{ opp.company }}</span>
+						<i class="fa fa-calendar"></i>
+						<span class="opportunity-duration">{{ opp.role_type }}</span>
+					</div>
+					<div class="opportunity-desc">{{ opp.description }}</div>
+					<div class="opportunity-tags">
+						{% for tag in opp.tags %}
+						<span class="tag-item">{{ tag }}</span>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="opportunity-actions">
+					<a href="{{ opp.application_link }}" target="_blank" class="opportunity-action"> Apply </a>
+				</div>
+				{% if not other %}
+				<div class="delete-confirm">
+					<button class="delete">
+						<i class="fa fa-trash-o fa-lg"></i>
+					</button>
+					<button class="yes" onclick="delete_item('opportunity', '{{ opp._id }}');">
+						<i class="fa fa-check"></i>
+					</button>
+					<button class="no">
+						<i class="fa fa-close"></i>
+					</button>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% else %}
+<div class="no-data">
+	<span>No Opportunities shared yet</span>
+</div>
+{% endif %} {% endblock %}

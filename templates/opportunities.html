@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+<!--  -->
+{% block meta %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+
+<!--  -->
+{% block title %} Opportunities {% endblock %}
+
+<!--  -->
+{% block main %}
+<div class="opportunity-container">
+	<div class="opportunity-box-container">
+		{% for opp in opportunities %}
+		<div class="opportunity-card">
+			<div class="opportunity box">
+				<div class="opportunity-main">
+					<a href="/profile/{{ opp.author.username }}"><img src="/uploads/profile/{{ opp.author.username }}_profile.webp" class="opportunity-img" /></a>
+					<div class="opportunity-detail">
+						<a class="opportunity-title" href="/profile/{{opp.author.username}}">
+							<strong>{{ opp.author.firstname }} {{ opp.author.lastname }}</strong>
+						</a>
+						<div class="opportunity-subtitle">
+							<div class="opportunity-date">{{ opp.added_time|timeperiod }}</div>
+						</div>
+					</div>
+				</div>
+				<div class="opportunity-content">
+					<div class="opportunity-title">{{ opp.role }}</div>
+					<div class="opportunity-details">
+						<i class="fa fa-map-marker"></i>
+						<span class="opportunity-location"> {{ opp.location }} </span>
+						<i class="fa fa-building-o"></i>
+						<span class="opportunity-company">{{ opp.company }}</span>
+						<i class="fa fa-calendar"></i>
+						<span class="opportunity-duration">{{ opp.role_type }}</span>
+					</div>
+					<div class="opportunity-desc">{{ opp.description }}</div>
+					<div class="opportunity-tags">
+						{% for tag in opp.tags %}
+						<span class="tag-item">{{ tag }}</span>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="opportunity-actions">
+					<a href="{{ opp.application_link }}" target="_blank" class="opportunity-action"> Apply </a>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
